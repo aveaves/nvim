@@ -1,0 +1,37 @@
+return {
+  "catppuccin/nvim",
+  name = "catppuccin",
+  opts = {
+    no_italic = true,
+    color_overrides = {
+      mocha = {
+        base = "#11111B",
+        mantle = "#12121C",
+        crust = "#13131D",
+      },
+    },
+    integrations = {
+      aerial = true,
+      alpha = true,
+      cmp = true,
+      dap = true,
+      dap_ui = true,
+      gitsigns = true,
+      illuminate = true,
+      indent_blankline = true,
+      markdown = true,
+      mason = true,
+      native_lsp = true,
+      neotree = true,
+      notify = true,
+      semantic_tokens = true,
+      symbols_outline = true,
+      telescope = true,
+      treesitter = true,
+      ts_rainbow = true,
+      ufo = true,
+      which_key = true,
+      window_picker = true,
+    },
+  },
+}
