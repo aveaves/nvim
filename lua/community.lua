@@ -9,5 +9,7 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.motion.mini-surround" },
+  { import = "astrocommunity.motion.flash-nvim" },
   -- import/override with your plugins folder
 }
