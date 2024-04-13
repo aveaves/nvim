@@ -4,10 +4,15 @@ return {
   opts = {
     no_italic = true,
     color_overrides = {
+      -- mocha = {
+      --   base = "#11111B",
+      --   mantle = "#0c0c13",
+      --   crust = "#06060a",
+      -- },
       mocha = {
-        base = "#11111B",
-        mantle = "#0c0c13",
-        crust = "#06060a",
+        base = "#181825",
+        mantle = "#11111B",
+        crust = "#0c0c13",
       },
     },
     integrations = {
