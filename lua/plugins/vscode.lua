@@ -14,6 +14,8 @@ local plugins = {
   "nvim-ts-autotag",
   "nvim-treesitter-textobjects",
   "nvim-ts-context-commentstring",
+
+  "fast-cursor-move.nvim",
 }
 
 -- mini.surround
@@ -36,13 +38,14 @@ return {
     opts = {
       mappings = {
         n = {
-          ["<Leader>ff"] = "<CMD>Find<CR>",
-          ["<Leader>fw"] = "<CMD>call VSCodeNotify('workbench.action.findInFiles')<CR>",
-          ["<Leader>ls"] = "<CMD>call VSCodeNotify('workbench.action.gotoSymbol')<CR>",
+          -- ["<Leader>ff"] = "<CMD>Find<CR>",
+          -- ["<Leader>fw"] = "<CMD>lua require('vscode-neovim').call('workbench.action.findInFiles')<CR>",
+          -- ["<Leader>ls"] = "<CMD>lua require('vscode-neovim').call('workbench.action.gotoSymbol')<CR>",
         },
       },
     },
   },
+
   -- disable colorscheme setting
   { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
