@@ -5,6 +5,8 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+-- Utility function
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -69,11 +71,56 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<D-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+
+        --General
+        ["<Leader>fs"] = { "<Cmd>write<CR>", desc = "Save File" },
+        ["<Leader>fD"] = {
+          function()
+            local confirm = vim.fn.confirm("Delete buffer and file?", "&Yes\n&No", 2)
+            if confirm == 1 then
+              os.remove(vim.fn.expand "%")
+              vim.api.nvim_buf_delete(0, { force = true })
+            end
+          end,
+          desc = "Delete File and Buffer",
+        },
+
+        -- Quitting
+        -- ["<Leader>q"] = { desc = "Quit" },
+        ["<Leader>qq"] = { "<Cmd>confirm q<CR>", desc = "Quit Window" },
+        ["<Leader>qa"] = { "<Cmd>confirm qall<CR>", desc = "Exit Nvim" },
+
+        -- Doom window mappings
+        -- ["<Leader>w"] = { desc = "Windows" },
+        ["<Leader>wv"] = { "<c-w>v", desc = "Vertical split" },
+        ["<Leader>ws"] = { "<c-w>s", desc = "Horizontal split" },
+        ["<Leader>wo"] = { "<c-w>o", desc = "Maximize window" },
+        ["<Leader>ww"] = { "<c-w>w", desc = "Switch window" },
+        ["<Leader>wq"] = { "<c-w>q", desc = "Close window" },
+
+        -- Disabled Mappings
+        ["<Leader>Q"] = false,
+        ["<Leader>w"] = false,
+        ["<Leader>q"] = false,
       },
+
+      -- v = {
+      --   -- General
+      --   ["<Leader>fs"] = { ":write<cr>", desc = "Save File" },
+      --   ["<Leader>q"] = { desc = "Quit" },
+      --   ["<Leader>qq"] = { ":q", desc = "Quit Nvim" },
+      --
+      --   -- Doom window mappings
+      --   ["<Leader>w"] = { desc = "Windows" },
+      --   ["<Leader>wv"] = { "<c-w>v", desc = "vertical split" },
+      --   ["<Leader>ws"] = { "<c-w>s", desc = "horizontal split" },
+      --   ["<Leader>wo"] = { "<c-w>o", desc = "maximize window" },
+      --   ["<Leader>ww"] = { "<c-w>w", desc = "switch window" },
+      -- },
+
       t = {
         -- setting a mapping to false will disable it
-        -- ["<esc>"] = false,
       },
     },
   },
